@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "example-mkdocs"
+version = "0.0.1.dev0"
+description = "Example MkDocs project for a lecture series."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "mkdocs>=1.6.1",
+    "numpy>=2.5.4",
+]
+
+[project.urls]
+Repository = "https://github.com/ICR-Computational-Imaging/example_mkdocs"
+
+[dependency-groups]
+dev = [
+    "bump2version>=1.0.1",
+    "pytest>=8",
+    "ruff>=0.14",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

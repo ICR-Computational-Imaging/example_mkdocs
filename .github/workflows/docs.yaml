@@ -9,7 +9,8 @@ on:
       - "mkdocs.yaml" 
       - "pyproject.toml" 
       - "uv.lock" 
-      - ".github/workflows/docs.yaml"  
+      - ".github/workflows/docs.yaml"
+      - "src/*"
   workflow_dispatch: 
 
 permissions: 

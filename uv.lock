@@ -274,7 +274,7 @@ wheels = [
 
 [[package]]
 name = "example-mkdocs"
-version = "0.0.1.dev0"
+version = "0.0.1.dev1"
 source = { editable = "." }
 dependencies = [
     { name = "matplotlib" },

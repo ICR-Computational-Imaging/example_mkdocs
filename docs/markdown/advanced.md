@@ -92,6 +92,63 @@ Merge these settings into the existing extension list, retaining the Mermaid
 options on the single SuperFences entry. See the
 [Material content-tabs reference](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/).
 
+## Reuse content with snippets
+
+Snippets include content from another file at build time. Use them to keep
+configuration examples or repeated instructions in sync with their source.
+This project enables the extension in `mkdocs.yaml`:
+
+```yaml
+markdown_extensions:
+  - pymdownx.snippets:
+      base_path: [.]
+      check_paths: true
+```
+
+With this base path, run MkDocs from the repository root. Snippet paths are
+relative to that root, rather than the Markdown page. `check_paths` makes a
+missing file or named section fail the build instead of silently disappearing.
+
+To include a whole file, put the directive on its own line:
+
+```markdown
+;--8<-- "README.md"
+```
+
+To include only a named section, surround it with matching markers in the source
+file. For example, `mkdocs.yaml` contains:
+
+```yaml
+# --8<-- [start:mkdocstrings]
+  - mkdocstrings:
+      # Plugin settings go here.
+# --8<-- [end:mkdocstrings]
+```
+
+Reference that section with `filename:section`. Surround the include with a code
+fence to display the included configuration with syntax highlighting:
+
+````markdown
+```yaml
+;--8<-- "mkdocs.yaml:mkdocstrings"
+```
+````
+
+The resulting configuration, included directly from this project's file, is:
+
+```yaml
+--8<-- "mkdocs.yaml:mkdocstrings"
+```
+
+Snippets run **before** fenced code is rendered. In this page's source, the
+teaching examples use a leading `;` to escape the directive: the extension
+removes that semicolon and displays the syntax without including the file.
+Omit the semicolon when you want an actual include. The section's marker lines
+are excluded from the included content.
+
+See the [Snippets reference](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/)
+for further options.
+
 ## Cross-reference pages and headings
 
 Use a relative `.md` path, optionally followed by a heading anchor:
@@ -172,6 +229,7 @@ outline of that page.
 | Code highlighting | `pymdownx.highlight` and Pygments |
 | Nested code and Mermaid fences | `pymdownx.superfences` |
 | Tabs | `pymdownx.tabbed` |
+| Included files and named sections | `pymdownx.snippets` |
 | Maths | `pymdownx.arithmatex` and MathJax |
 | Callouts and collapsible sections | `admonition` and `pymdownx.details` |
 | Search | MkDocs `search` plugin |
@@ -206,5 +264,7 @@ with access to their external scripts.
 Create a workflow page with a Mermaid diagram, a pair of tabs, and a link to
 another lesson. Add it to `nav`, inspect its table of contents, and run a strict
 build. Explain which extension provides each feature.
+
+**Next:** [API Documentation with mkdocstrings](mkdocstrings.md).
 
 [Return to the tutorial overview](index.md).

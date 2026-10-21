@@ -3,6 +3,7 @@
 import argparse  # Useful library for managing terminal command arguments.
 from collections.abc import Sequence
 from math import ceil, isfinite
+from typing import Any
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -47,7 +48,7 @@ class WavePlotter:
 
     def plot_sinusoid(self, times: NDArray,
                       axis: Axes | None = None,
-                      **kwargs) -> Axes:
+                      **kwargs: Any) -> Axes:
         """ Plot the sine wave given the instance variables.
 
         Args:

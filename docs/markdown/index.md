@@ -10,15 +10,16 @@ The lesson numbers follow the supplied course sequence, starting at 2.
 
 | Lesson | What you will learn |
 | :--- | :--- |
-| [2. Headings & Document Structure](headings.md) | Organise a page and understand automatic navigation. |
-| [3. Text Formatting](text-formatting.md) | Add emphasis, code spans, and horizontal rules. |
-| [4. Lists & Task Lists](lists.md) | Write steps, nested lists, and checklists. |
-| [5. Links & Images](links-and-images.md) | Connect pages and embed images using relative paths. |
-| [6. Code Blocks & Syntax Highlighting](code-blocks.md) | Present readable, copyable code. |
-| [7. Tables](tables.md) | Compare options and align structured information. |
-| [8. Mathematical Equations](mathematics.md) | Write LaTeX equations and configure MathJax. |
-| [9. Admonitions & Callouts](admonitions.md) | Add notes, warnings, tips, and collapsible explanations. |
-| [10. Advanced Features & MkDocs Integration](advanced.md) | Combine diagrams, tabs, cross-references, and extensions. |
+| [1. Headings & Document Structure](headings.md) | Organise a page and understand automatic navigation. |
+| [2. Text Formatting](text-formatting.md) | Add emphasis, code spans, and horizontal rules. |
+| [3. Lists & Task Lists](lists.md) | Write steps, nested lists, and checklists. |
+| [4. Links & Images](links-and-images.md) | Connect pages and embed images using relative paths. |
+| [5. Code Blocks & Syntax Highlighting](code-blocks.md) | Present readable, copyable code. |
+| [6. Tables](tables.md) | Compare options and align structured information. |
+| [7. Mathematical Equations](mathematics.md) | Write LaTeX equations and configure MathJax. |
+| [8. Admonitions & Callouts](admonitions.md) | Add notes, warnings, tips, and collapsible explanations. |
+| [9. Advanced Features & MkDocs Integration](advanced.md) | Combine diagrams, tabs, cross-references, and extensions. |
+| [10. Documentation with mkdocstrings](mkdocstrings.md) | Generate API reference material from Python docstrings. |
 
 ## Work through the examples
 

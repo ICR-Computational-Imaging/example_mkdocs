@@ -12,6 +12,7 @@ license = "Apache-2.0"
 license-files = ["LICENSE"]
 dependencies = [
     "mkdocs>=1.6.1",
+    "mkdocs-material>=9.5,<10",
     "numpy>=2.5.4",
 ]
 

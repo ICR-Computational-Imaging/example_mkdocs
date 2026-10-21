@@ -1,98 +1,67 @@
-# MkDocs configuration for the project documentation website.
-
-site_name: Example MkDocs v0.0.1.dev0  # The name of the site
-site_url: https://ICR-Computational-Imaging.github.io/RC4R/  # The URL for the static pages
-repo_url: https://github.com/ICR-Computational-Imaging/RC4R  # The URL for the repository
-docs_dir: docs  # The main location of the documentation files
-exclude_docs: |  # Don't include these when making doc pages (relative to `docs_dir`)
-  README.md
-
-copyright: Copyright &copy; The Institute of Cancer Research  # Replace with the responsible person or organisation.
-edit_uri: ""  # Keep empty to hide edit links; this does not change repository permissions.
-use_directory_urls: true  # Keep enabled for clean URLs such as /guide/ instead of /guide.html.
+# Preview: uv run mkdocs serve. Validate: uv run mkdocs build --strict.
+site_name: Example MkDocs v0.0.1.dev0
+site_url: https://ICR-Computational-Imaging.github.io/example_mkdocs/
+repo_url: https://github.com/ICR-Computational-Imaging/example_mkdocs
+copyright: Copyright &copy; The Institute of Cancer Research
+docs_dir: docs
+edit_uri: ""
+use_directory_urls: true
 
 theme:
-  name: material  # Use theme from additional mkdocs-material package.
-  language: en  # Replace with another supported language code if required.
-  logo: assets/logo/dermapred-logo.svg  # Path is relative to docs_dir; replace with the project logo.
-  favicon: assets/logo/favicon.ico  # Path is relative to docs_dir; replace with the project favicon.
-  palette:
-    - scheme: default  # Customize this palette to change the site's colour scheme.
+  name: material
+  language: en
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
   features:
     - content.code.copy
-    - content.code.select
-    - content.code.annotate
-
-hooks:
-  - scripts/docs_optional_figures.py  # Show placeholders until evaluation figures and metrics are available.
+    - navigation.footer
+    - toc.follow
 
 plugins:
-  - search  # Keep enabled to provide client-side documentation search.
-  - mkdocstrings:
-      default_handler: python  # Use the Python handler unless a page selects another language.
-      handlers:
-        python:
-          paths: [src]  # Import dermapred from the repository's src layout.
+  - search
 
-# Markdown features used throughout the documentation.
 markdown_extensions:
-  - pymdownx.highlight:  # See: https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.superfences
-  - pymdownx.snippets:
-      base_path:
-        - .  # Allows sections from any base file to be embedded in the docs.
-        - docs/examples  # Replace or extend when reusable snippets are stored elsewhere.
-        - .github/workflows
-  - attr_list  # Enables attributes on images and other Markdown elements.
-  - md_in_html  # Enables Markdown content inside HTML blocks.
-  - admonition
-  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
 
-# Navigation labels and their Markdown sources, relative to docs_dir.
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
 # --8<-- [start:navigation]
 nav:
-  - Home: index.md  # Add an entry here whenever a new page should appear in site navigation.
-  - Contributing: development_workflow.md
-  - DermaPred:
-      - Image inference: dermapred/inference.md
-      - Desktop interface: dermapred/ui.md
-      - Downloading data: dermapred/data_download.md
-      - Releasing and downloading models: dermapred/model_download.md
-      - Image preprocessing: dermapred/dvc/preprocessing.md
-      - Model training: dermapred/dvc/train.md
-      - Probability calibration: dermapred/dvc/calibration.md
-      - Model provenance: dermapred/dvc/provenance.md
-      - Validation performance: dermapred/dvc/validation.md
-      - Final test evaluation: dermapred/dvc/evaluation.md
-  - DermaPred API:
-      - data.download_data: dermapred/api/data/download_data.md
-      - data.preprocessing: dermapred/api/data/preprocessing.md
-      - evaluation.metrics: dermapred/api/evaluation/metrics.md
-      - inference.calibration: dermapred/api/inference/calibration.md
-      - inference.cli: dermapred/api/inference/cli.md
-      - inference.download: dermapred/api/inference/download.md
-      - inference.predictor: dermapred/api/inference/predictor.md
-      - models.binary_classifier: dermapred/api/models/binary_classifier.md
-      - plotting.calibration: dermapred/api/plotting/calibration.md
-      - plotting.evaluation: dermapred/api/plotting/evaluation.md
-      - plotting.train: dermapred/api/plotting/train.md
-      - ui.app: dermapred/api/ui/app.md
-      - ui.images: dermapred/api/ui/images.md
-  - General Tools:
-      - Managing Python with uv: general/uv.md
-      - Semantic versioning: general/semantic_versioning.md
-      - Publishing a Python package: general/publishing_to_pypi.md
-      - Managing data with DVC: general/dvc.md
-      - Using Git and GitHub: general/github.md
-      - Testing with pytest: general/testing.md
-      - Code quality: general/code_quality.md
-      - Automation with GitHub Actions: general/github_actions.md
-      - Writing documentation with MkDocs: general/mkdocs.md
-      - Publishing with GitHub Pages: general/github-pages.md
-  
+  - Home: index.md
+  - Markdown tutorials:
+      - Overview: markdown/index.md
+      - "1. Headings & Document Structure": markdown/headings.md
+      - "2. Text Formatting": markdown/text-formatting.md
+      - "3. Lists & Task Lists": markdown/lists.md
+      - "4. Links & Images": markdown/links-and-images.md
+      - "5. Code Blocks & Syntax Highlighting": markdown/code-blocks.md
+      - "6. Tables": markdown/tables.md
+      - "7. Mathematical Equations": markdown/mathematics.md
+      - "8. Admonitions & Callouts": markdown/admonitions.md
+      - "9. Advanced Features & MkDocs Integration": markdown/advanced.md
 # --8<-- [end:navigation]
-# Note: The --8<-- block helps mkdocs snippets identify specific blocks of content to incorporate into Markdown documentation files.

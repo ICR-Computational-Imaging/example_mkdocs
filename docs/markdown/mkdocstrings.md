@@ -26,25 +26,27 @@ The following configuration is enabled in this project's `mkdocs.yaml`:
 ```
 
 `paths` tells the handler where to find modules; relative paths start at the
-MkDocs configuration file. Here, it can find `plotting_example.py` directly in
-`src/example-mkdocs/`. Additional locations can be added to this list.
+MkDocs configuration file. Here, `src` contains the `example_mkdocs` package,
+so the module's full identifier is `example_mkdocs.plotting_example`. Other
+packages added under `src/` are found through the same search path. Additional
+source roots can be added to this list if needed.
 
 ## Use the standard directive syntax
 
 Place `:::` followed by an object's dotted identifier in a Markdown page:
 
 ```markdown
-::: plotting_example.calculate_sample_count
+::: example_mkdocs.plotting_example.calculate_sample_count
 ```
 
 The directive can target a module, class, function, or method. These are examples
 of valid targets in this project:
 
 ```text
-plotting_example
-plotting_example.WavePlotter
-plotting_example.WavePlotter.plot_sinusoid
-plotting_example.calculate_sample_count
+example_mkdocs.plotting_example
+example_mkdocs.plotting_example.WavePlotter
+example_mkdocs.plotting_example.WavePlotter.plot_sinusoid
+example_mkdocs.plotting_example.calculate_sample_count
 ```
 
 Put a directive outside a code fence to generate documentation. The fenced
@@ -53,7 +55,7 @@ examples on this tutorial page deliberately display the syntax as text.
 Indent optional YAML settings four spaces below the directive:
 
 ```markdown
-::: plotting_example.calculate_sample_count
+::: example_mkdocs.plotting_example.calculate_sample_count
     options:
       heading_level: 2
       show_root_heading: true
@@ -92,7 +94,7 @@ The [example-mkdocs API reference](../api/example-mkdocs.md) contains this live
 directive:
 
 ```markdown
-::: plotting_example
+::: example_mkdocs.plotting_example
     options:
       heading_level: 2
       show_root_heading: true
@@ -108,6 +110,8 @@ methods such as `WavePlotter.plot_sinusoid` appear under their class.
 For example, the sampling function returns **301** for 1 Hz over 10 seconds:
 
 ```python
+from example_mkdocs.plotting_example import calculate_sample_count
+
 calculate_sample_count(frequency=1.0, duration=10.0)
 ```
 

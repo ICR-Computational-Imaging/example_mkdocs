@@ -18,8 +18,8 @@ The lesson numbers follow the supplied course sequence, starting at 2.
 | [6. Tables](tables.md) | Compare options and align structured information. |
 | [7. Mathematical Equations](mathematics.md) | Write LaTeX equations and configure MathJax. |
 | [8. Admonitions & Callouts](admonitions.md) | Add notes, warnings, tips, and collapsible explanations. |
-| [9. Advanced Features & MkDocs Integration](advanced.md) | Combine diagrams, tabs, cross-references, and extensions. |
-| [10. Documentation with mkdocstrings](mkdocstrings.md) | Generate API reference material from Python docstrings. |
+| [9. Documentation with mkdocstrings](mkdocstrings.md) | Generate API reference material from Python docstrings. |
+| [10. Advanced Features & MkDocs Integration](advanced.md) | Combine diagrams, tabs, cross-references, and extensions. |
 
 ## Work through the examples
 

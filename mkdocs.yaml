@@ -25,7 +25,7 @@ plugins:
       handlers:
         python:
           paths:
-            - src/example-mkdocs
+            - src
           options:
             docstring_style: google
             members_order: source
@@ -78,8 +78,8 @@ nav:
       - "6. Tables": markdown/tables.md
       - "7. Mathematical Equations": markdown/mathematics.md
       - "8. Admonitions & Callouts": markdown/admonitions.md
-      - "9. Advanced Features & MkDocs Integration": markdown/advanced.md
-      - "10. API Documentation with mkdocstrings": markdown/mkdocstrings.md
+      - "9. API Documentation with mkdocstrings": markdown/mkdocstrings.md
+      - "10. Advanced Features & MkDocs Integration": markdown/advanced.md
   - API reference:
       - example-mkdocs: api/example-mkdocs.md
 # --8<-- [end:navigation]

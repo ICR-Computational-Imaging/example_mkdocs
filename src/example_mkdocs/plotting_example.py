@@ -126,7 +126,7 @@ def _parse_args(arguments: Sequence[str] | None = None) -> argparse.Namespace:
 
 
 if __name__ == "__main__":
-    # Called from command line: python -m example-mkdocs.plotting_example
+    # Called from command line: python -m example_mkdocs.plotting_example
     args = _parse_args()
     sample_count = calculate_sample_count(args.frequency, args.duration)
     times = np.linspace(0, args.duration, sample_count)

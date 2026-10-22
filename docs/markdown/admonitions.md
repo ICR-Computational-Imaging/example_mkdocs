@@ -63,8 +63,8 @@ Indent all content belonging to the admonition, including fences:
 
 !!! example "Build checklist"
 
-    1. Save your Markdown files.
-    2. Build the site:
+    - [x] Save your Markdown files.
+    - [ ] Build the site:
 
         ```bash
         uv run mkdocs build --strict

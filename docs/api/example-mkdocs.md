@@ -1,6 +1,6 @@
 # example-mkdocs API
 
-Reference documentation for the modules in `example-mkdocs`, generated from
+Reference documentation for the modules in `src/example_mkdocs/`, generated from
 their source and docstrings.
 
 ## Using the plotting module
@@ -12,13 +12,13 @@ module-level `plot_sinusoid` function also displays the figure.
 For example, from the repository root:
 
 ```bash
-uv run python -m example-mkdocs.plotting_example --frequency 2 --duration 5
+uv run python -m example_mkdocs.plotting_example --frequency 2 --duration 5
 ```
 
-See the [mkdocstrings tutorial](../markdown/mkdocstrings.md) for configuration 
+See the [mkdocstrings tutorial](../markdown/mkdocstrings.md) for configuration
 and syntax when generating such APIs.
 
-::: plotting_example
+::: example_mkdocs.plotting_example
     options:
       heading_level: 2
       show_root_heading: true

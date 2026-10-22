@@ -1,5 +1,5 @@
 # Preview: uv run mkdocs serve. Validate: uv run mkdocs build --strict.
-site_name: Example MkDocs v0.0.2.dev0  # Site title shown in the header and browser page titles.
+site_name: Example MkDocs v0.0.3.dev0  # Site title shown in the header and browser page titles.
 site_url: https://ICR-Computational-Imaging.github.io/example_mkdocs/  # Public base URL used for canonical URLs and the sitemap.
 repo_url: https://github.com/ICR-Computational-Imaging/example_mkdocs  # Repository URL used for the theme's source-code link.
 copyright: Copyright &copy; The Institute of Cancer Research  # Footer copyright text; &copy; renders as the copyright symbol.

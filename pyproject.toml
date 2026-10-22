@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "example-mkdocs"
-version = "0.0.2.dev0"
+version = "0.0.3.dev0"
 description = "Example MkDocs project for a lecture series."
 readme = "README.md"
 requires-python = ">=3.12"

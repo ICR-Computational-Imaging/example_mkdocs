@@ -1,85 +1,85 @@
 # Preview: uv run mkdocs serve. Validate: uv run mkdocs build --strict.
-site_name: Example MkDocs v0.0.2.dev0
-site_url: https://ICR-Computational-Imaging.github.io/example_mkdocs/
-repo_url: https://github.com/ICR-Computational-Imaging/example_mkdocs
-copyright: Copyright &copy; The Institute of Cancer Research
-docs_dir: docs
-edit_uri: ""
-use_directory_urls: true
+site_name: Example MkDocs v0.0.2.dev0  # Site title shown in the header and browser page titles.
+site_url: https://ICR-Computational-Imaging.github.io/example_mkdocs/  # Public base URL used for canonical URLs and the sitemap.
+repo_url: https://github.com/ICR-Computational-Imaging/example_mkdocs  # Repository URL used for the theme's source-code link.
+copyright: Copyright &copy; The Institute of Cancer Research  # Footer copyright text; &copy; renders as the copyright symbol.
+docs_dir: docs  # Directory containing the Markdown pages and static assets.
+edit_uri: ""  # Empty value disables links for editing individual pages in the repository.
+use_directory_urls: true  # Generate page/index.html URLs, served as /page/, instead of page.html URLs.
 
-theme:
-  name: material
-  language: en
-  logo: assets/logo.svg
-  favicon: assets/logo.svg
-  features:
-    - content.code.copy
-    - navigation.footer
-    - toc.follow
+theme:  # Settings for the site's visual theme.
+  name: material  # Use the Material for MkDocs theme.
+  language: en  # Use English for theme labels, buttons, and other interface text.
+  logo: assets/logo.svg  # Header logo path, relative to docs_dir.
+  favicon: assets/logo.svg  # Browser tab icon path, relative to docs_dir.
+  features:  # Optional Material theme features to enable.
+    - content.code.copy  # Add a copy-to-clipboard button to code blocks.
+    - navigation.footer  # Show previous-page and next-page links in the footer.
+    - toc.follow  # Scroll the page's table of contents to keep the active heading visible.
 
-plugins:
-  - search
-# --8<-- [start:mkdocstrings]
-  - mkdocstrings:
-      default_handler: python
-      handlers:
-        python:
-          paths:
-            - src
-          options:
-            docstring_style: google
-            members_order: source
-            show_signature_annotations: true
-# --8<-- [end:mkdocstrings]
+plugins:  # Build plugins; listing them explicitly replaces MkDocs' default plugin list.
+  - search  # Build a search index and enable the site's search interface.
+# --8<-- [start:mkdocstrings]  Begin the named snippet used in tutorial pages.
+  - mkdocstrings:  # Generate API reference sections from source code and docstrings.
+      default_handler: python  # Interpret ::: object directives as Python objects by default.
+      handlers:  # Configure the language-specific documentation handlers.
+        python:  # Settings for the Python handler.
+          paths:  # Source roots searched when resolving Python module names.
+            - src  # Find packages such as example_mkdocs beneath this directory.
+          options:  # Default rendering and collection options for Python API directives.
+            docstring_style: google  # Parse Google-style Args, Returns, and Raises sections.
+            members_order: source  # Display members in the order they appear in the source file.
+            show_signature_annotations: true  # Include type annotations in rendered function signatures.
+# --8<-- [end:mkdocstrings]  End the named snippet; marker lines are omitted from includes.
 
-markdown_extensions:
-  - toc:
-      permalink: true
-  - tables
-  - attr_list
-  - md_in_html
-  - admonition
-  - pymdownx.details
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.snippets:
-      base_path: [.]
-      check_paths: true
+markdown_extensions:  # Extend Python Markdown's parsing and rendering capabilities.
+  - toc:  # Generate heading IDs and a page table of contents.
+      permalink: true  # Add a clickable anchor link beside each heading.
+  - tables  # Render pipe-separated Markdown tables.
+  - attr_list  # Support attributes such as image widths and explicit heading IDs.
+  - md_in_html  # Allow Markdown inside HTML blocks marked with a markdown attribute.
+  - admonition  # Support !!! note, warning, tip, and similar callout blocks.
+  - pymdownx.details  # Support collapsible ??? and initially expanded ???+ callouts.
+  - pymdownx.tasklist:  # Render - [ ] and - [x] task-list items as checkboxes.
+      custom_checkbox: true  # Use checkbox markup styled by the Material theme.
+  - pymdownx.tilde  # Support ~~strikethrough~~ and the extension's subscript syntax.
+  - pymdownx.highlight:  # Configure Pygments syntax highlighting for code examples.
+      anchor_linenums: true  # Turn code line numbers into links to individual lines.
+      line_spans: __span  # Give code lines span IDs with this prefix for line-level targeting.
+      pygments_lang_class: true  # Add a language class to highlighted code blocks.
+  - pymdownx.inlinehilite  # Support highlighted inline code using a language hint such as #!python.
+  - pymdownx.superfences:  # Support fenced code nested in lists, tabs, and callouts, plus custom fences.
+      custom_fences:  # Special fenced-block formats handled separately from ordinary highlighted code.
+        - name: mermaid  # Recognise blocks whose opening fence specifies mermaid.
+          class: mermaid  # Add the CSS class Material uses to initialise Mermaid diagrams.
+          format: !!python/name:pymdownx.superfences.fence_code_format  # Load the Python formatter that preserves the diagram text in a code block.
+  - pymdownx.tabbed:  # Support content tabs introduced with === and a quoted label.
+      alternate_style: true  # Use the tab markup required by the Material theme.
+  - pymdownx.arithmatex:  # Recognise inline and display maths in Markdown.
+      generic: true  # Wrap equations for a separately loaded renderer such as MathJax.
+  - pymdownx.snippets:  # Include files or named file sections before Markdown rendering.
+      base_path: [.]  # Resolve snippet filenames from the working directory; run MkDocs at the repository root.
+      check_paths: true  # Fail on missing snippet files or named sections instead of silently omitting them.
 
-extra_javascript:
-  - assets/javascripts/mathjax.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+extra_javascript:  # Additional browser scripts, included in the listed order.
+  - assets/javascripts/mathjax.js  # Local MathJax settings, loaded before the library; path is relative to docs_dir.
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js  # Load the pinned MathJax library from a CDN to typeset equations.
 
-# --8<-- [start:navigation]
-nav:
-  - Home: index.md
-  - Markdown tutorials:
-      - Overview: markdown/index.md
-      - "1. Headings & Document Structure": markdown/headings.md
-      - "2. Text Formatting": markdown/text-formatting.md
-      - "3. Lists & Task Lists": markdown/lists.md
-      - "4. Links & Images": markdown/links-and-images.md
-      - "5. Code Blocks & Syntax Highlighting": markdown/code-blocks.md
-      - "6. Tables": markdown/tables.md
-      - "7. Mathematical Equations": markdown/mathematics.md
-      - "8. Admonitions & Callouts": markdown/admonitions.md
-      - "9. API Documentation with mkdocstrings": markdown/mkdocstrings.md
-      - "10. Advanced Features & MkDocs Integration": markdown/advanced.md
-  - API reference:
-      - example-mkdocs: api/example-mkdocs.md
-# --8<-- [end:navigation]
+# --8<-- [start:navigation]  Begin the named snippet for the navigation configuration.
+nav:  # Site navigation labels, grouping, and order; page paths are relative to docs_dir.
+  - Home: index.md  # Link the Home menu item to the site's landing page.
+  - Markdown tutorials:  # Group the Markdown lessons under one navigation section.
+      - Overview: markdown/index.md  # Link to the tutorial contents and introductory guidance.
+      - "1. Headings & Document Structure": markdown/headings.md  # Lesson on heading levels and document organisation.
+      - "2. Text Formatting": markdown/text-formatting.md  # Lesson on emphasis, inline code, strikethrough, and rules.
+      - "3. Lists & Task Lists": markdown/lists.md  # Lesson on bullets, numbered lists, nesting, and checkboxes.
+      - "4. Links & Images": markdown/links-and-images.md  # Lesson on hyperlinks, relative paths, and embedded images.
+      - "5. Code Blocks & Syntax Highlighting": markdown/code-blocks.md  # Lesson on fenced code, language hints, and copyable examples.
+      - "6. Tables": markdown/tables.md  # Lesson on table columns, alignment, and comparisons.
+      - "7. Mathematical Equations": markdown/mathematics.md  # Lesson on LaTeX maths and browser rendering.
+      - "8. Admonitions & Callouts": markdown/admonitions.md  # Lesson on notes, warnings, tips, and collapsible sections.
+      - "9. API Documentation with mkdocstrings": markdown/mkdocstrings.md  # Lesson on generating reference documentation from docstrings.
+      - "10. Advanced Features & MkDocs Integration": markdown/advanced.md  # Lesson on diagrams, tabs, snippets, and site integration.
+  - API reference:  # Group generated Python API documentation in its own navigation section.
+      - example-mkdocs: api/example-mkdocs.md  # Link to the plotting module's generated API reference.
+# --8<-- [end:navigation]  End the named navigation snippet.

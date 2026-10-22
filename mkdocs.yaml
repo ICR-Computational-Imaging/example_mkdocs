@@ -1,5 +1,5 @@
 # Preview: uv run mkdocs serve. Validate: uv run mkdocs build --strict.
-site_name: Example MkDocs v0.0.1.dev1
+site_name: Example MkDocs v0.0.2.dev0
 site_url: https://ICR-Computational-Imaging.github.io/example_mkdocs/
 repo_url: https://github.com/ICR-Computational-Imaging/example_mkdocs
 copyright: Copyright &copy; The Institute of Cancer Research
